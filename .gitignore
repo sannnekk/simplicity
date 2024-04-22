@@ -1,0 +1,5 @@
+.git
+vendor
+composer.lock
+composer.phar
+.env

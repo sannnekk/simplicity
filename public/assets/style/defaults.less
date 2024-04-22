@@ -1,0 +1,164 @@
+// === Default styles ===
+* {
+  font-family: 'Heebo';
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+input,
+button,
+a {
+  outline: none !important;
+}
+
+input {
+  border-radius: 0;
+}
+
+b {
+  color: @contrast;
+}
+
+u {
+  text-decoration: none;
+  color: @main;
+}
+
+a {
+  text-decoration: none;
+  color: @contrast;
+
+  &:hover {
+    color: @contrast-dark;
+  }
+}
+
+// buttons
+.button {
+  border: 2px solid @contrast;
+  background-color: transparent;
+  color: @contrast;
+  font-weight: 500;
+  padding: 15px 30px;
+  font-size: 20px;
+  text-decoration: none;
+  position: relative;
+  transition: 0.1s ease all;
+  z-index: 1;
+
+  &:before {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: @contrast;
+    content: '';
+    transition: 0.1s ease all;
+  }
+
+  &:hover {
+    color: #fff;
+
+    &:before {
+      height: 100%;
+    }
+  }
+}
+
+// modals
+.modal {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  z-index: 999;
+  display: none;
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.2s ease all;
+
+    &:hover {
+      color: @contrast;
+      transform: scale(1.1);
+    }
+  }
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000099;
+  z-index: 900;
+}
+
+#zoom-modal {
+  background-color: #fff;
+
+  * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .img {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-height: 95%;
+      max-width: 95%;
+    }
+  }
+
+  .next,
+  .prev {
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    right: 20px;
+    font-size: 50px;
+    cursor: pointer;
+    max-width: 100px;
+  }
+
+  .next {
+    &:hover {
+      color: @main;
+    }
+  }
+
+  .prev {
+    left: 20px;
+
+    &:hover {
+      color: @main;
+    }
+  }
+}
+
+// breakpoints
+@xs: ~"only screen and (max-width: 576px)";
+@sm: ~"only screen and (min-width: 577px) and (max-width: 767px)";
+@md: ~"only screen and (min-width: 768px) and (max-width: 991px)";
+@lg: ~"only screen and (min-width: 992px) and (max-width: 1220px)";
