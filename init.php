@@ -13,8 +13,7 @@ $dotenv->load();
 
 
 // DB setup
-R::setup($_ENV['DB_CONNECTION']);
-
+\RedBeanPHP\R::setup($_ENV['DB_CONNECTION'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
 
 // init core script
 $core = new \Simplicity\Core\Core();
